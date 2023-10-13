@@ -5,10 +5,8 @@
   ## Table of Contents
 
   * [Description](#description)
-  * [Installation](#installation)
-  * [Contributing](#contributing)
-  * [Testing](#testing)
-  * [Usage](#usage)
+  * [Deployed Page](#Deployed Page)
+  * [GitHub link](#GitHub link)
   * [Questions](#questions)
   * [GitHub](#github)
   * [Email](#email)
