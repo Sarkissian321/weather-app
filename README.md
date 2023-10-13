@@ -2,14 +2,6 @@
 
   ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-  ## Table of Contents
-
-  * [Description](#description)
-  * [Deployed Page](#Deployed Page)
-  * [GitHub link](#GitHub link)
-  * [Questions](#questions)
-  * [GitHub](#github)
-  * [Email](#email)
 
   ## Desription
 
