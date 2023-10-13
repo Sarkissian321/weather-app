@@ -43,14 +43,73 @@ function searchWeather(cityName) {
                 <div class="card bg-secondary text-white">
                     <div class="card-body">
                         <h5 class="card-title">${dayjs.unix(list[i].dt).format("MM/DD/YYYY")}</h5>
-                        <p class="card-text"><img src="https://openweathermap.org/img/wn/10d@2x.png" /> </p>
-                        <p>Temp: 70 °F </p>
-                        <p>Wind: 8 mph</p>
-                        <p>Humidity: 44 %</p>
+                        <p class="card-text"><img src="https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png" /></p>
+                        <p>Temp: ${list[i].main.temp} °F</p>
+                        <p>Wind: ${list[i].wind.speed} mph</p>
+                        <p>Humidity: ${list[i].main.humidity} %</p>
                     </div>
                 </div>
             </div>
                 `
             }
         })
+}
+
+
+var recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
+
+
+function storeRecentSearch(cityName) {
+    
+    recentSearches.push(cityName);
+
+  
+    if (recentSearches.length > 5) {
+        recentSearches.shift(); 
+    }
+
+
+    localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
+}
+
+
+function displayRecentSearches() {
+    var recentSearchesContainer = document.getElementById('recent-searches-container');
+
+    recentSearchesContainer.innerHTML = '';
+
+    var ul = document.createElement('ul');
+    ul.classList.add('recent-searches-list');
+
+    for (var i = 0; i < recentSearches.length; i++) {
+        var li = document.createElement('li');
+        
+        var button = document.createElement('button');
+        button.textContent = recentSearches[i];
+        button.classList.add('recent-search-button');
+        button.addEventListener('click', function() {
+            var cityName = this.textContent;
+            searchWeather(cityName);
+        });
+
+        li.appendChild(button);
+        ul.appendChild(li);
+    }
+
+    recentSearchesContainer.appendChild(ul);
+}
+
+
+
+displayRecentSearches();
+
+
+function searchCity() {
+    var cityName = cityInput.value;
+    searchWeather(cityName);
+
+
+    storeRecentSearch(cityName);
+
+    displayRecentSearches();
 }
