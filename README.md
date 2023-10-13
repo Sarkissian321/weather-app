@@ -11,10 +11,11 @@
 
   ## Deployed Page
 
-  
+  https://sarkissian321.github.io/weather-app/
 
   ## GitHub link
-
+  
+   https://github.com/Sarkissian321/weather-app
 
 
   ## Questiosn
